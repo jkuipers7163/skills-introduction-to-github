@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dammen</title>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" id="svgAll"  x='0' y='0' width="1000" height="500" viewBox="0 0 8000 4000">
+      <defs>
+        <filter id="colorShift">
+          <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 1 1 0 0 1 0 0 1 0 0 1 0"
+        </filter>
+        <filter id = "glow">
+           <feDiffuseLighting result = "diffOut" in = "SourceAlpha" diffuseConstant = "1.2" lighting-color = "white">
+           <fePointLight x = "0" y = "0" z = "100" pointsAtX = "0" pointsAtY = "0" pointsAtZ = "0"/>
+           </feDiffuseLighting>
+           <feComposite in = "SourceGraphic" in2 = "diffOut" operator = "arithmetic" k1 = "5" k2 = "2" k3 = "0" k4 = "0"/>
+        </filter>
+        <filter id="drop-shadow">
+          <feTurbulence type="turbulence" baseFrequency="10" numOctaves="8" result="turbulence"/>
+          <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="50" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+      <rect x="0" y="0" width="7995" height="3495" fill="rgb(100 100 100)" stroke-width='50' stroke="maroon"/>
+      <!--<rect x="100" y="50" width="1400" height="300" fill="lightGrey" opacity='50%' stroke-width='10' stroke="maroon"/>-->
+      <rect id="infoPanel"  x="0" width="1500" height="3495" fill="lightGrey" opacity='100%' stroke-width='5' stroke="maroon"/>
+      <g>
+        <!--<rect id="analysePanel" x="5000" width="1500" height="3495" fill="grey" opacity='100%' stroke-width='5' stroke="maroon"/>
+        <rect id="opstelling"  x="5000" width="1500" height="250" fill="rgb(200 00 0)"/>
+        <rect id="analyse" x="5000" y="3000" width="1500" height="250" fill="rgb(255 0 0)"/> -->
+        <g id="nieuwSpel">
+          <rect x="5000" y="150" width="1500" height="300" fill="rgb(200 200 200)"/>
+          <text id="startText" x="5100" y="300" font-size='150'>Nieuw Spel</text>
+        </g>
+        <g id="neemTerug">
+          <rect id="ondergrond" x="5000" y="3200" width="3000" height="300" fill="rgb(200 200 200)"/>
+          <path transform="translate(6300,3200) scale(7)" id="backArrow" stroke="black" fill="rgb(255 0 0)" d="M45.506,33.532c-1.741-7.42-7.161-17.758-23.554-19.942V7.047c0-1.364-0.826-2.593-2.087-3.113
+            c-1.261-0.521-2.712-0.229-3.675,0.737L1.305,19.63c-1.739,1.748-1.74,4.572-0.001,6.32L16.19,40.909
+            c0.961,0.966,2.415,1.258,3.676,0.737c1.261-0.521,2.087-1.75,2.087-3.113v-6.331c5.593,0.007,13.656,0.743,19.392,4.313
+            c0.953,0.594,2.168,0.555,3.08-0.101C45.335,35.762,45.763,34.624,45.506,33.532z"/>
+          <!--<text x="5850" y="3150" font-size='150'>Zet</text>
+          <text x="6250" y="3150" font-size='150'>terug</text> -->
+          <rect id="afdekking" x="5750" y="3000" width="1500" height="300" opacity="0%" fill="rgb(200 200 200)"/>
+        </g>
+      </g>
+      <g id="bakMetStenen">
+        <rect x="6500" y="150" width="1500" height="300" fill="rgb(200 200 200)"/>
+        <text id="bakjeText" x="6600" y="300" font-size='150'>Nieuwe Stelling</text>
+      </g>
+      <text x="4500" y="100" font-size='100'>Wit aan zet</text>
+      <rect id="notatie" x="0" y="00" width="1500" height="300" fill="rgb(200 200 200)"/>
+      <text x="100" y="150" font-size='150'>Partijnotatie</text>
+      <svg xmlns="http://www.w3.org/2000/svg"  id="svgBoard" opacity="100%" x="1650" y="150" width="3495" height="3495" viewBox="0 0 3500 3500">
+      </svg>
+      <g  transform="translate(00,0)" id="controlPanel2">
+        <rect id="aanZet" x='5000' y="0" width="3000" height="150" fill="black"/>
+        <!--<rect  y="150" width="1500" fill="darkGrey" height="350" stroke-width='10' stroke="maroon"/>-->
+      </g>
+      <g  transform="translate(0,3000)" id="controlPanel">
+         <g transform="translate(400,-200)">
+         <path id="fwdButtonA"
+            fill="grey" stroke="black" stroke-width="10"
+            d="M 884.50,374.21
+               C 884.50,374.21 901.50,374.21 901.50,374.21
+                 918.43,374.03 938.80,378.74 954.50,385.00
+                 971.77,391.89 987.68,401.69 1001.50,414.17
+                 1064.65,471.20 1067.62,568.82 1012.21,632.00
+                 1000.41,645.46 983.48,658.14 967.50,666.24
+                 942.46,678.94 918.32,683.32 890.50,683.00
+                 878.00,682.85 859.39,679.01 847.50,675.00
+                 827.18,668.14 808.43,657.22 792.50,642.83
+                 742.44,597.62 728.96,523.80 756.81,463.00
+                 774.14,425.15 806.45,396.59 845.50,382.69
+                 859.64,377.66 869.98,376.50 884.50,374.21 Z" />
+          <path id="fwdTriangle"
+              fill="silver" stroke="black" stroke-width="10"
+              d="M 825.00,411.00
+               C 829.50,414.00 828.00,645.00 828.00,645.00
+                 828.00,645.00 1032.00,523.50 1032.00,523.50
+                 1032.00,523.50 820.50,408.00 825.00,411.00 Z" />
+          </g>
+          <g transform="translate(-330,-200)">
+          <path id="bckButtonA"
+            fill="grey" stroke="black" stroke-width="10"
+            d="M 518.50,374.21
+               C 518.50,374.21 535.50,374.21 535.50,374.21
+                 552.43,374.03 572.80,378.74 588.50,385.00
+                 605.77,391.89 621.68,401.69 635.50,414.17
+                 698.65,471.20 701.62,568.82 646.21,632.00
+                 634.41,645.46 617.48,658.14 601.50,666.24
+                 576.46,678.94 552.32,683.32 524.50,683.00
+                 512.00,682.85 493.39,679.01 481.50,675.00
+                 461.18,668.14 442.43,657.22 426.50,642.83
+                 376.44,597.62 362.96,523.80 390.81,463.00
+                 408.14,425.15 440.45,396.59 479.50,382.69
+                 493.64,377.66 503.98,376.50 518.50,374.21 Z" />
+          <path id="bckTriangle"
+            fill="silver" stroke="black" stroke-width="10"
+            d="M 595.50,409.50
+               C 600.00,412.50 598.50,643.50 598.50,643.50
+                 598.50,643.50 402.00,546.00 399.00,540.00
+                 571.50,424.50 591.00,406.50 595.50,409.50 Z" />
+        </g>
+      </g>
+    </svg>
+  </body>
+  <script src="svgLibrary.js" type="text/javascript"></script>
+  <script src="dashBoard.js" type="text/javascript"></script>
+  <script src="alphaBeta.js" type="text/javascript"></script>
+  <script src="dammen.js" type="text/javascript"></script>
+  <script src="puzzels.js" type="text/javascript"></script>
+</html>
